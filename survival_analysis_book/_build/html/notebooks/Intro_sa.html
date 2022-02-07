@@ -1,0 +1,1706 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生存分析 Survival Analysis &#8212; Survival Analysis for PdM</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="基于分布的生存分析" href="Weibull.html" />
+    <link rel="prev" title="Survival Analysis" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/data_amber.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Survival Analysis for PdM</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Survival Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Survival Analysis Introduction and Non-Parametric Model
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   生存分析 Survival Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weibull Model and AFT model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Weibull.html">
+   基于分布的生存分析
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  COX PH model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Hazard%20%20Function.html">
+   风险函数hazard function
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Model Selection
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Model%20Selection.html">
+   模型选择
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Intro_sa.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bingblackbean/survival_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bingblackbean/survival_analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Intro_sa.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bingblackbean/survival_analysis/master?urlpath=tree/docs/notebooks/Intro_sa.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   什么是生存分析?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   生存分析解决什么问题
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   生存分析的数据收集
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     生存分析核心数据
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     生存分析协变量数据
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#censorship">
+   数据删失问题censorship
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   开始实战
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   构造数据
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   创建模型
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaplan-meier">
+   Kaplan-Meier 模型
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   模拟删失 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   模拟删失 2：
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   生存函数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id12">
+   模型预测
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>生存分析 Survival Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   什么是生存分析?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   生存分析解决什么问题
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   生存分析的数据收集
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     生存分析核心数据
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     生存分析协变量数据
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#censorship">
+   数据删失问题censorship
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   开始实战
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   构造数据
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   创建模型
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaplan-meier">
+   Kaplan-Meier 模型
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   模拟删失 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   模拟删失 2：
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   生存函数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id12">
+   模型预测
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="survival-analysis">
+<h1>生存分析 Survival Analysis<a class="headerlink" href="#survival-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>什么是生存分析?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>生存分析是统计的一个分支，用于分析一个事件发生之前的预期持续时间，例如生物有机体的死亡和机械设备的故障。</p>
+<p>比如：</p>
+<ul class="simple">
+<li><p>预计客户的流失随时间的变化</p></li>
+<li><p>预测设备运行期间发生故障的概率</p></li>
+<li><p>预测电池是否没电</p></li>
+<li><p>预测用户何时愿意付费</p></li>
+</ul>
+<p>生存分析的核心词是“<em><strong>time-to-event</strong></em>”，也就是分析发生event的time。</p>
+<ul class="simple">
+<li><p>所谓的event：就是研究对象状态的变化，比如设备故障，感染病毒（新冠），用户退订或者用户付费，员工辞职等。用数学表述就是他们可以用0或1 来表征，而且只有0和1，没有中间的灰色地带。</p></li>
+<li><p>time: 更准确的表述应该是“duration time”，表示的是event发生或者观察/试验结束时时长。</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>生存分析解决什么问题<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>比如：</p>
+<ul class="simple">
+<li><p>横向:分析对象发生事件的比例，比如多少人感染新冠，多少设备可能发生故障</p></li>
+<li><p>纵向：分析对象发生事件的时间，比如何时感染，何时发生故障</p></li>
+<li><p>外界因素： 分析哪些因素会加速事件的发生，比如新冠的高风险因素，设备的工况，员工的升职加薪对离职的影响</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>生存分析的数据收集<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>生存分析核心数据<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Duration： 持续时间，截止到观测时间点的每个研究对象距离事件发生的持续时间，比如员工在职时间，设备无故障持续运行时间</p></li>
+<li><p>Observed Event：观测的事件是否已经发生</p></li>
+</ul>
+<p>当然了，这是一个样本（研究对象）的数据，为了研究统计信息，我们需要很多这样的样本信息。</p>
+</div>
+<div class="section" id="id5">
+<h3>生存分析协变量数据<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>任何变量： 大家对新冠已经耳熟能详了，新冠感染的高风险比如：近距离接触，职业因素，所处国家等等，都会影响感染的机率。
+这些就是协变量。</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="censorship">
+<h2>数据删失问题censorship<a class="headerlink" href="#censorship" title="Permalink to this headline">¶</a></h2>
+<p>数据删失就是数据不完整，比如设备你观察了10天，结果有些设备直到你结束记录都没有发生故障，也就是说它的持续时间大于你的观察时间，但是不知道大多少。 这种就是右删失。</p>
+<p>相比而言，有一种叫做左删失，就是持续时间小于你的观察时间，比如设备发送故障了，但是忘了是哪个时间发生的。或者感染新冠了，忘了哪一天了，只记得感染过。</p>
+<p>所以最理想的情况，就是你清楚的知道所有观测对象的准确持续时间，这个常见的试验就是加速寿命试验。</p>
+</div>
+<div class="section" id="id6">
+<h2>开始实战<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>我们采用之前分享的航天发动机失效数据集。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># read training data </span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/PM_train.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">train_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">train_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;setting1&#39;</span><span class="p">,</span> <span class="s1">&#39;setting2&#39;</span><span class="p">,</span> <span class="s1">&#39;setting3&#39;</span><span class="p">,</span> <span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;s3&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;s4&#39;</span><span class="p">,</span> <span class="s1">&#39;s5&#39;</span><span class="p">,</span> <span class="s1">&#39;s6&#39;</span><span class="p">,</span> <span class="s1">&#39;s7&#39;</span><span class="p">,</span> <span class="s1">&#39;s8&#39;</span><span class="p">,</span> <span class="s1">&#39;s9&#39;</span><span class="p">,</span> <span class="s1">&#39;s10&#39;</span><span class="p">,</span> <span class="s1">&#39;s11&#39;</span><span class="p">,</span> <span class="s1">&#39;s12&#39;</span><span class="p">,</span> <span class="s1">&#39;s13&#39;</span><span class="p">,</span> <span class="s1">&#39;s14&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;s15&#39;</span><span class="p">,</span> <span class="s1">&#39;s16&#39;</span><span class="p">,</span> <span class="s1">&#39;s17&#39;</span><span class="p">,</span> <span class="s1">&#39;s18&#39;</span><span class="p">,</span> <span class="s1">&#39;s19&#39;</span><span class="p">,</span> <span class="s1">&#39;s20&#39;</span><span class="p">,</span> <span class="s1">&#39;s21&#39;</span><span class="p">]</span>
+<span class="n">train_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>cycle</th>
+      <th>setting1</th>
+      <th>setting2</th>
+      <th>setting3</th>
+      <th>s1</th>
+      <th>s2</th>
+      <th>s3</th>
+      <th>s4</th>
+      <th>s5</th>
+      <th>...</th>
+      <th>s12</th>
+      <th>s13</th>
+      <th>s14</th>
+      <th>s15</th>
+      <th>s16</th>
+      <th>s17</th>
+      <th>s18</th>
+      <th>s19</th>
+      <th>s20</th>
+      <th>s21</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>-0.0007</td>
+      <td>-0.0004</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>641.82</td>
+      <td>1589.70</td>
+      <td>1400.60</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>521.66</td>
+      <td>2388.02</td>
+      <td>8138.62</td>
+      <td>8.4195</td>
+      <td>0.03</td>
+      <td>392</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>39.06</td>
+      <td>23.4190</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>0.0019</td>
+      <td>-0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.15</td>
+      <td>1591.82</td>
+      <td>1403.14</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>522.28</td>
+      <td>2388.07</td>
+      <td>8131.49</td>
+      <td>8.4318</td>
+      <td>0.03</td>
+      <td>392</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>39.00</td>
+      <td>23.4236</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>-0.0043</td>
+      <td>0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.35</td>
+      <td>1587.99</td>
+      <td>1404.20</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>522.42</td>
+      <td>2388.03</td>
+      <td>8133.23</td>
+      <td>8.4178</td>
+      <td>0.03</td>
+      <td>390</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.95</td>
+      <td>23.3442</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>4</td>
+      <td>0.0007</td>
+      <td>0.0000</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.35</td>
+      <td>1582.79</td>
+      <td>1401.87</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>522.86</td>
+      <td>2388.08</td>
+      <td>8133.83</td>
+      <td>8.3682</td>
+      <td>0.03</td>
+      <td>392</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.88</td>
+      <td>23.3739</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>5</td>
+      <td>-0.0019</td>
+      <td>-0.0002</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.37</td>
+      <td>1582.85</td>
+      <td>1406.22</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>522.19</td>
+      <td>2388.04</td>
+      <td>8133.80</td>
+      <td>8.4294</td>
+      <td>0.03</td>
+      <td>393</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.90</td>
+      <td>23.4044</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20626</th>
+      <td>100</td>
+      <td>196</td>
+      <td>-0.0004</td>
+      <td>-0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.49</td>
+      <td>1597.98</td>
+      <td>1428.63</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>519.49</td>
+      <td>2388.26</td>
+      <td>8137.60</td>
+      <td>8.4956</td>
+      <td>0.03</td>
+      <td>397</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.49</td>
+      <td>22.9735</td>
+    </tr>
+    <tr>
+      <th>20627</th>
+      <td>100</td>
+      <td>197</td>
+      <td>-0.0016</td>
+      <td>-0.0005</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.54</td>
+      <td>1604.50</td>
+      <td>1433.58</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>519.68</td>
+      <td>2388.22</td>
+      <td>8136.50</td>
+      <td>8.5139</td>
+      <td>0.03</td>
+      <td>395</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.30</td>
+      <td>23.1594</td>
+    </tr>
+    <tr>
+      <th>20628</th>
+      <td>100</td>
+      <td>198</td>
+      <td>0.0004</td>
+      <td>0.0000</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.42</td>
+      <td>1602.46</td>
+      <td>1428.18</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>520.01</td>
+      <td>2388.24</td>
+      <td>8141.05</td>
+      <td>8.5646</td>
+      <td>0.03</td>
+      <td>398</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.44</td>
+      <td>22.9333</td>
+    </tr>
+    <tr>
+      <th>20629</th>
+      <td>100</td>
+      <td>199</td>
+      <td>-0.0011</td>
+      <td>0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.23</td>
+      <td>1605.26</td>
+      <td>1426.53</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>519.67</td>
+      <td>2388.23</td>
+      <td>8139.29</td>
+      <td>8.5389</td>
+      <td>0.03</td>
+      <td>395</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.29</td>
+      <td>23.0640</td>
+    </tr>
+    <tr>
+      <th>20630</th>
+      <td>100</td>
+      <td>200</td>
+      <td>-0.0032</td>
+      <td>-0.0005</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.85</td>
+      <td>1600.38</td>
+      <td>1432.14</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>519.30</td>
+      <td>2388.26</td>
+      <td>8137.33</td>
+      <td>8.5036</td>
+      <td>0.03</td>
+      <td>396</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.37</td>
+      <td>23.0522</td>
+    </tr>
+  </tbody>
+</table>
+<p>20631 rows × 26 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>构造数据<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>做生存分析，核心数据就是持续时间和事件是否发生。</p>
+<p>在这个数据集中，最后所有的发动机都失效了。我们可以给每个样本都添加一个标签。</p>
+<p>如果当前循环的次数大于最大次数，那就是失效了。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data Labeling - generate column RUL</span>
+<span class="n">rul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">rul</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">rul</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;observed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">])</span>
+<span class="n">train_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>cycle</th>
+      <th>setting1</th>
+      <th>setting2</th>
+      <th>setting3</th>
+      <th>s1</th>
+      <th>s2</th>
+      <th>s3</th>
+      <th>s4</th>
+      <th>s5</th>
+      <th>...</th>
+      <th>s14</th>
+      <th>s15</th>
+      <th>s16</th>
+      <th>s17</th>
+      <th>s18</th>
+      <th>s19</th>
+      <th>s20</th>
+      <th>s21</th>
+      <th>max</th>
+      <th>observed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>-0.0007</td>
+      <td>-0.0004</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>641.82</td>
+      <td>1589.70</td>
+      <td>1400.60</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8138.62</td>
+      <td>8.4195</td>
+      <td>0.03</td>
+      <td>392</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>39.06</td>
+      <td>23.4190</td>
+      <td>192</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>0.0019</td>
+      <td>-0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.15</td>
+      <td>1591.82</td>
+      <td>1403.14</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8131.49</td>
+      <td>8.4318</td>
+      <td>0.03</td>
+      <td>392</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>39.00</td>
+      <td>23.4236</td>
+      <td>192</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>-0.0043</td>
+      <td>0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.35</td>
+      <td>1587.99</td>
+      <td>1404.20</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8133.23</td>
+      <td>8.4178</td>
+      <td>0.03</td>
+      <td>390</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.95</td>
+      <td>23.3442</td>
+      <td>192</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>4</td>
+      <td>0.0007</td>
+      <td>0.0000</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.35</td>
+      <td>1582.79</td>
+      <td>1401.87</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8133.83</td>
+      <td>8.3682</td>
+      <td>0.03</td>
+      <td>392</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.88</td>
+      <td>23.3739</td>
+      <td>192</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>5</td>
+      <td>-0.0019</td>
+      <td>-0.0002</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>642.37</td>
+      <td>1582.85</td>
+      <td>1406.22</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8133.80</td>
+      <td>8.4294</td>
+      <td>0.03</td>
+      <td>393</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.90</td>
+      <td>23.4044</td>
+      <td>192</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20626</th>
+      <td>100</td>
+      <td>196</td>
+      <td>-0.0004</td>
+      <td>-0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.49</td>
+      <td>1597.98</td>
+      <td>1428.63</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8137.60</td>
+      <td>8.4956</td>
+      <td>0.03</td>
+      <td>397</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.49</td>
+      <td>22.9735</td>
+      <td>200</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>20627</th>
+      <td>100</td>
+      <td>197</td>
+      <td>-0.0016</td>
+      <td>-0.0005</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.54</td>
+      <td>1604.50</td>
+      <td>1433.58</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8136.50</td>
+      <td>8.5139</td>
+      <td>0.03</td>
+      <td>395</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.30</td>
+      <td>23.1594</td>
+      <td>200</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>20628</th>
+      <td>100</td>
+      <td>198</td>
+      <td>0.0004</td>
+      <td>0.0000</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.42</td>
+      <td>1602.46</td>
+      <td>1428.18</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8141.05</td>
+      <td>8.5646</td>
+      <td>0.03</td>
+      <td>398</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.44</td>
+      <td>22.9333</td>
+      <td>200</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>20629</th>
+      <td>100</td>
+      <td>199</td>
+      <td>-0.0011</td>
+      <td>0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.23</td>
+      <td>1605.26</td>
+      <td>1426.53</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8139.29</td>
+      <td>8.5389</td>
+      <td>0.03</td>
+      <td>395</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.29</td>
+      <td>23.0640</td>
+      <td>200</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>20630</th>
+      <td>100</td>
+      <td>200</td>
+      <td>-0.0032</td>
+      <td>-0.0005</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.85</td>
+      <td>1600.38</td>
+      <td>1432.14</td>
+      <td>14.62</td>
+      <td>...</td>
+      <td>8137.33</td>
+      <td>8.5036</td>
+      <td>0.03</td>
+      <td>396</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.37</td>
+      <td>23.0522</td>
+      <td>200</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>20631 rows × 28 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_event</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+<span class="n">max_event</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cycle</th>
+      <th>setting1</th>
+      <th>setting2</th>
+      <th>setting3</th>
+      <th>s1</th>
+      <th>s2</th>
+      <th>s3</th>
+      <th>s4</th>
+      <th>s5</th>
+      <th>s6</th>
+      <th>...</th>
+      <th>s14</th>
+      <th>s15</th>
+      <th>s16</th>
+      <th>s17</th>
+      <th>s18</th>
+      <th>s19</th>
+      <th>s20</th>
+      <th>s21</th>
+      <th>max</th>
+      <th>observed</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>192</td>
+      <td>0.0009</td>
+      <td>-0.0000</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.54</td>
+      <td>1601.41</td>
+      <td>1427.20</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8110.93</td>
+      <td>8.5113</td>
+      <td>0.03</td>
+      <td>396</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.48</td>
+      <td>22.9649</td>
+      <td>192</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>287</td>
+      <td>-0.0005</td>
+      <td>0.0006</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.85</td>
+      <td>1608.50</td>
+      <td>1430.84</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8175.57</td>
+      <td>8.5365</td>
+      <td>0.03</td>
+      <td>398</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.43</td>
+      <td>23.0848</td>
+      <td>287</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>179</td>
+      <td>0.0012</td>
+      <td>0.0000</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.51</td>
+      <td>1604.80</td>
+      <td>1428.23</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8255.34</td>
+      <td>8.5056</td>
+      <td>0.03</td>
+      <td>398</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.40</td>
+      <td>22.9562</td>
+      <td>179</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>189</td>
+      <td>-0.0024</td>
+      <td>-0.0002</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>644.53</td>
+      <td>1612.11</td>
+      <td>1432.55</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8259.42</td>
+      <td>8.5246</td>
+      <td>0.03</td>
+      <td>398</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.44</td>
+      <td>23.1006</td>
+      <td>189</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>269</td>
+      <td>0.0022</td>
+      <td>0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.46</td>
+      <td>1597.28</td>
+      <td>1430.74</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8212.75</td>
+      <td>8.5209</td>
+      <td>0.03</td>
+      <td>397</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.45</td>
+      <td>23.0296</td>
+      <td>269</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>336</td>
+      <td>-0.0031</td>
+      <td>-0.0005</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.74</td>
+      <td>1599.20</td>
+      <td>1432.12</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8144.03</td>
+      <td>8.5022</td>
+      <td>0.03</td>
+      <td>397</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.36</td>
+      <td>23.0258</td>
+      <td>336</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>202</td>
+      <td>0.0014</td>
+      <td>0.0001</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.79</td>
+      <td>1610.66</td>
+      <td>1427.41</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8263.63</td>
+      <td>8.5277</td>
+      <td>0.03</td>
+      <td>397</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.29</td>
+      <td>23.1184</td>
+      <td>202</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>156</td>
+      <td>0.0077</td>
+      <td>-0.0003</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.02</td>
+      <td>1603.77</td>
+      <td>1432.16</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8122.22</td>
+      <td>8.5308</td>
+      <td>0.03</td>
+      <td>396</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.33</td>
+      <td>23.1137</td>
+      <td>156</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>185</td>
+      <td>-0.0019</td>
+      <td>-0.0004</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.93</td>
+      <td>1598.42</td>
+      <td>1421.56</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8127.53</td>
+      <td>8.5425</td>
+      <td>0.03</td>
+      <td>397</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.49</td>
+      <td>23.1931</td>
+      <td>185</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>200</td>
+      <td>-0.0032</td>
+      <td>-0.0005</td>
+      <td>100.0</td>
+      <td>518.67</td>
+      <td>643.85</td>
+      <td>1600.38</td>
+      <td>1432.14</td>
+      <td>14.62</td>
+      <td>21.61</td>
+      <td>...</td>
+      <td>8137.33</td>
+      <td>8.5036</td>
+      <td>0.03</td>
+      <td>396</td>
+      <td>2388</td>
+      <td>100.0</td>
+      <td>38.37</td>
+      <td>23.0522</td>
+      <td>200</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 27 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>创建模型<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>我们先创建最简单的模型来预测。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lifelines</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">max_event</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+
+<span class="n">kmf</span> <span class="o">=</span> <span class="n">lifelines</span><span class="o">.</span><span class="n">KaplanMeierFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;km&#39;</span><span class="p">)</span>
+<span class="n">kmf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">durations</span><span class="o">=</span><span class="n">max_event</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">],</span>
+<span class="n">event_observed</span><span class="o">=</span><span class="n">max_event</span><span class="p">[</span><span class="s1">&#39;observed&#39;</span><span class="p">])</span>
+<span class="n">kmf</span><span class="o">.</span><span class="n">plot_survival_function</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Intro_sa_10_0.png" src="../_images/Intro_sa_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="kaplan-meier">
+<h2>Kaplan-Meier 模型<a class="headerlink" href="#kaplan-meier" title="Permalink to this headline">¶</a></h2>
+<p>lifelines是一个完整的生存分析库，用纯 Python编写。里面包含了最全的生存分析的统计模型。这里我们调用的第一个模型是Kaplan-Meier 模型。
+它是一个无参数模型，不会考虑数据的分布情况。</p>
+<p>它的生存函数是当前时刻和之前所有时刻的生存概率的乘积。
+<img alt="image.png" src="../_images/k1.png" /></p>
+<p>我们也注意到了，这个函数仅仅使用了持续时间作为输入参数，也就是说，它不会考虑个体和个体之间的其他差异。
+对于我们这个数据集来说，运行工况就无法被有效利用。</p>
+</div>
+<div class="section" id="id9">
+<h2>模拟删失 1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>我们模拟右删失情况，这种情况很常见，因为有些观测对象持续时间比观察者（人）的寿命还长。</p>
+<p>第一种情况，假设这些机器都是同时运行的，我们在某个时间停止观察，比如在250次的时候。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lifelines</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">max_event_censor_right</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">250</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+
+<span class="n">kmf_cr</span> <span class="o">=</span> <span class="n">lifelines</span><span class="o">.</span><span class="n">KaplanMeierFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;km_cr&#39;</span><span class="p">)</span>
+<span class="n">kmf_cr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">durations</span><span class="o">=</span><span class="n">max_event_censor_right</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">],</span>
+<span class="n">event_observed</span><span class="o">=</span><span class="n">max_event_censor_right</span><span class="p">[</span><span class="s1">&#39;observed&#39;</span><span class="p">])</span>
+<span class="n">kmf_cr</span><span class="o">.</span><span class="n">plot_survival_function</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Intro_sa_13_0.png" src="../_images/Intro_sa_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>模拟删失 2：<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>有些设备可能启动的早，虽然我们在某个时刻停止观察了，但是他们已经运行了很长的时间了。</p>
+<ul class="simple">
+<li><p>对于寿命不足250的，取他们的最大数据。这个用于模拟试验结束</p></li>
+<li><p>对于寿命大于250的，随机抽取数据</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lifelines</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">max_event_censor_1</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">250</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>  
+<span class="n">max_event_censor_2</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">250</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">250</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+
+<span class="n">max_event_censor_mix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">max_event_censor_1</span><span class="p">,</span><span class="n">max_event_censor_2</span><span class="p">])</span>
+<span class="n">kmf_cm</span> <span class="o">=</span> <span class="n">lifelines</span><span class="o">.</span><span class="n">KaplanMeierFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;km_cm&#39;</span><span class="p">)</span>
+<span class="n">kmf_cm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">durations</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">],</span>
+<span class="n">event_observed</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="s1">&#39;observed&#39;</span><span class="p">])</span>
+<span class="n">kmf_cm</span><span class="o">.</span><span class="n">plot_survival_function</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Intro_sa_15_0.png" src="../_images/Intro_sa_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">kmf</span><span class="o">.</span><span class="n">plot_survival_function</span><span class="p">()</span>
+<span class="n">kmf_cm</span><span class="o">.</span><span class="n">plot_survival_function</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Intro_sa_16_0.png" src="../_images/Intro_sa_16_0.png" />
+</div>
+</div>
+<p>从下图我们可以看到，由于数据删失，我们无法很准确的得到250次以上的信息。</p>
+<p>有可能无法得到最长的寿命，也有可能得到不准确的概率估计。</p>
+</div>
+<div class="section" id="id11">
+<h2>生存函数<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>我们注意到plot_survival_function 绘制的曲线，就是生存函数图。
+图中的阴影部分表示置信区间，样本量越大，置信区间越窄。</p>
+<p>生存函数就是寿命T大于t的概率：
+S(t)=Pr(T&gt;t)
+t表示某个时间，T表示生存的时间（寿命），Pr表示表示概率。</p>
+<p>比如人类寿命的生存函数大概就是这样：
+<img alt="intro_survival_function.png" src="../_images/intro_survival_function.png" /></p>
+</div>
+<div class="section" id="id12">
+<h2>模型预测<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>建立好模型，对于输入的任何持续时间，我们都能估计出它的生存概率。
+同样的，对比上述几个模型的结果，我们会看到基于删失数据的模型，准确率自然要差一些。</p>
+<ul class="simple">
+<li><p>采用kmf_cm 进行预测</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmf_cm</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">500</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100    1.000000
+150    0.930000
+200    0.460000
+300    0.134505
+500    0.134505
+Name: km_cm, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>采用kmf 进行预测</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">500</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100    1.00
+150    0.93
+200    0.46
+300    0.04
+500    0.00
+Name: km, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>比如我们想要知道50%的观测对象能持续多久？</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmf_cm</span><span class="o">.</span><span class="n">median_survival_time_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>199.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "env"
+        },
+        kernelOptions: {
+            kernelName: "env",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'env'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Survival Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Weibull.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">基于分布的生存分析</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By BingBlackBean<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模型选择 &#8212; Survival Analysis for PdM</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="风险函数hazard function" href="Hazard%20%20Function.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/data_amber.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Survival Analysis for PdM</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Survival Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Survival Analysis Introduction and Non-Parametric Model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro_sa.html">
+   生存分析 Survival Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weibull Model and AFT model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Weibull.html">
+   基于分布的生存分析
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  COX PH model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Hazard%20%20Function.html">
+   风险函数hazard function
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Model Selection
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   模型选择
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Model Selection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bingblackbean/survival_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bingblackbean/survival_analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Model Selection.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bingblackbean/survival_analysis/master?urlpath=tree/docs/notebooks/Model Selection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   检查低方差
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   总结
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>模型选择</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   检查低方差
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   总结
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>模型选择<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>前面介绍了多种建模方式，这节我们讨论以下如何选择模型。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># read training data </span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/PM_train.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">train_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">train_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;setting1&#39;</span><span class="p">,</span> <span class="s1">&#39;setting2&#39;</span><span class="p">,</span> <span class="s1">&#39;setting3&#39;</span><span class="p">,</span> <span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;s3&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;s4&#39;</span><span class="p">,</span> <span class="s1">&#39;s5&#39;</span><span class="p">,</span> <span class="s1">&#39;s6&#39;</span><span class="p">,</span> <span class="s1">&#39;s7&#39;</span><span class="p">,</span> <span class="s1">&#39;s8&#39;</span><span class="p">,</span> <span class="s1">&#39;s9&#39;</span><span class="p">,</span> <span class="s1">&#39;s10&#39;</span><span class="p">,</span> <span class="s1">&#39;s11&#39;</span><span class="p">,</span> <span class="s1">&#39;s12&#39;</span><span class="p">,</span> <span class="s1">&#39;s13&#39;</span><span class="p">,</span> <span class="s1">&#39;s14&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;s15&#39;</span><span class="p">,</span> <span class="s1">&#39;s16&#39;</span><span class="p">,</span> <span class="s1">&#39;s17&#39;</span><span class="p">,</span> <span class="s1">&#39;s18&#39;</span><span class="p">,</span> <span class="s1">&#39;s19&#39;</span><span class="p">,</span> <span class="s1">&#39;s20&#39;</span><span class="p">,</span> <span class="s1">&#39;s21&#39;</span><span class="p">]</span>
+<span class="c1"># Data Labeling - generate column RUL</span>
+<span class="n">rul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">rul</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">rul</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;observed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">])</span>
+
+<span class="kn">import</span> <span class="nn">lifelines</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">max_event</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+<span class="n">max_event_censor_1</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">250</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>  
+<span class="n">max_event_censor_2</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">250</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">250</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+
+<span class="n">max_event_censor_mix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">max_event_censor_1</span><span class="p">,</span><span class="n">max_event_censor_2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>检查低方差<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们可以使用DataFrame的统计值,筛选出出方差比较大的特征</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">std_sr</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">std_sr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>s9          2.208288e+01
+s14         1.907618e+01
+s4          9.000605e+00
+s3          6.131150e+00
+s17         1.548763e+00
+s7          8.850923e-01
+s12         7.375534e-01
+s2          5.000533e-01
+s11         2.670874e-01
+s20         1.807464e-01
+s21         1.082509e-01
+s13         7.191892e-02
+s8          7.098548e-02
+s15         3.750504e-02
+setting1    2.187313e-03
+s6          1.388985e-03
+setting2    2.930621e-04
+s5          1.776400e-15
+s16         1.387812e-17
+s1          0.000000e+00
+s18         0.000000e+00
+s19         0.000000e+00
+setting3    0.000000e+00
+s10         0.000000e+00
+Name: std, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">std_sr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;s9&#39;, &#39;s14&#39;, &#39;s4&#39;, &#39;s3&#39;, &#39;s17&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifelines</span> <span class="kn">import</span> <span class="n">CoxPHFitter</span><span class="p">,</span><span class="n">WeibullAFTFitter</span>
+
+<span class="n">cph1</span> <span class="o">=</span> <span class="n">CoxPHFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;cph1&#39;</span><span class="p">)</span>
+<span class="n">cph1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">std_sr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span><span class="s1">&#39;observed&#39;</span><span class="p">]],</span><span class="n">duration_col</span><span class="o">=</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span>
+<span class="n">event_col</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">,</span><span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1: norm_delta = 6.38160, step_size = 0.9000, log_lik = -334.74516, newton_decrement = 18.64339, seconds_since_start = 0.0
+
+Iteration 2: norm_delta = 4.72041, step_size = 0.2250, log_lik = -327.30228, newton_decrement = 11.11436, seconds_since_start = 0.0
+
+Iteration 3: norm_delta = 3.17610, step_size = 0.2925, log_lik = -321.75042, newton_decrement = 5.60788, seconds_since_start = 0.0
+
+Iteration 4: norm_delta = 1.47860, step_size = 0.4943, log_lik = -317.56902, newton_decrement = 1.49434, seconds_since_start = 0.0
+
+Iteration 5: norm_delta = 0.19772, step_size = 0.8354, log_lik = -316.10438, newton_decrement = 0.05041, seconds_since_start = 0.0
+
+Iteration 6: norm_delta = 0.00148, step_size = 1.0000, log_lik = -316.05371, newton_decrement = 0.00000, seconds_since_start = 0.0
+
+Iteration 7: norm_delta = 0.00000, step_size = 1.0000, log_lik = -316.05371, newton_decrement = 0.00000, seconds_since_start = 0.0
+Convergence success after 7 iterations.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;lifelines.CoxPHFitter:&quot;cph1&quot;, fitted with 100 total observations, 15 right-censored observations&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cph2</span> <span class="o">=</span> <span class="n">CoxPHFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;cph1&#39;</span><span class="p">)</span>
+<span class="n">cph2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">std_sr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span><span class="s1">&#39;observed&#39;</span><span class="p">]],</span><span class="n">duration_col</span><span class="o">=</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span>
+<span class="n">event_col</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">,</span><span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1: norm_delta = 5.71665, step_size = 0.9000, log_lik = -334.74516, newton_decrement = 22.97305, seconds_since_start = 0.0
+
+Iteration 2: norm_delta = 4.00191, step_size = 0.2250, log_lik = -325.54982, newton_decrement = 15.12582, seconds_since_start = 0.0
+
+Iteration 3: norm_delta = 2.64511, step_size = 0.2925, log_lik = -317.94331, newton_decrement = 9.23807, seconds_since_start = 0.0
+
+Iteration 4: norm_delta = 1.31387, step_size = 0.4943, log_lik = -310.88370, newton_decrement = 3.99483, seconds_since_start = 0.0
+
+Iteration 5: norm_delta = 0.28904, step_size = 0.8354, log_lik = -306.64658, newton_decrement = 0.63025, seconds_since_start = 0.0
+
+Iteration 6: norm_delta = 0.01969, step_size = 1.0000, log_lik = -305.96915, newton_decrement = 0.00964, seconds_since_start = 0.0
+
+Iteration 7: norm_delta = 0.00029, step_size = 1.0000, log_lik = -305.95941, newton_decrement = 0.00000, seconds_since_start = 0.0
+
+Iteration 8: norm_delta = 0.00000, step_size = 1.0000, log_lik = -305.95941, newton_decrement = 0.00000, seconds_since_start = 0.0
+Convergence success after 8 iterations.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;lifelines.CoxPHFitter:&quot;cph1&quot;, fitted with 100 total observations, 15 right-censored observations&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cph3</span> <span class="o">=</span> <span class="n">CoxPHFitter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;cph1&#39;</span><span class="p">)</span>
+<span class="n">cph3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">std_sr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span><span class="s1">&#39;observed&#39;</span><span class="p">]],</span><span class="n">duration_col</span><span class="o">=</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span>
+<span class="n">event_col</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">,</span><span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1: norm_delta = 6.01272, step_size = 0.9000, log_lik = -334.74516, newton_decrement = 25.55741, seconds_since_start = 0.0
+
+Iteration 2: norm_delta = 4.04988, step_size = 0.2250, log_lik = -324.52332, newton_decrement = 16.59274, seconds_since_start = 0.0
+
+Iteration 3: norm_delta = 2.59220, step_size = 0.2925, log_lik = -316.17691, newton_decrement = 10.30794, seconds_since_start = 0.0
+
+Iteration 4: norm_delta = 1.21098, step_size = 0.4943, log_lik = -308.26647, newton_decrement = 4.92684, seconds_since_start = 0.0
+
+Iteration 5: norm_delta = 0.24620, step_size = 0.8354, log_lik = -302.90321, newton_decrement = 1.21045, seconds_since_start = 0.0
+
+Iteration 6: norm_delta = 0.05263, step_size = 1.0000, log_lik = -301.53899, newton_decrement = 0.05903, seconds_since_start = 0.0
+
+Iteration 7: norm_delta = 0.00335, step_size = 1.0000, log_lik = -301.47827, newton_decrement = 0.00012, seconds_since_start = 0.0
+
+Iteration 8: norm_delta = 0.00001, step_size = 1.0000, log_lik = -301.47815, newton_decrement = 0.00000, seconds_since_start = 0.0
+Convergence success after 8 iterations.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\renb\pycharmprojects\survival_analysis\env\lib\site-packages\lifelines\utils\__init__.py:1103: ConvergenceWarning: Column(s) [&#39;setting1&#39;] have very low variance. This may harm convergence. 1) Are you using formula&#39;s? Did you mean to add &#39;-1&#39; to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;lifelines.CoxPHFitter:&quot;cph1&quot;, fitted with 100 total observations, 15 right-censored observations&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们已经学了多个模型,现在是时候做出抉择了。</p>
+<p>其实对于一般的机器学习，我们会看模型的准确度。对于我们拟合的这个模型，他们同样有评价指标：对数似然。</p>
+<p>最大化似然性等同于最大化对数似然性，对数似然也是越大越好。可以看到top 15的那一组会有优势。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cph1_core</span> <span class="o">=</span> <span class="n">cph1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">std_sr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span><span class="s1">&#39;observed&#39;</span><span class="p">]])</span>
+<span class="n">cph2_core</span> <span class="o">=</span> <span class="n">cph2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">std_sr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span><span class="s1">&#39;observed&#39;</span><span class="p">]])</span>
+<span class="n">cph3_core</span> <span class="o">=</span> <span class="n">cph3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">max_event_censor_mix</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">std_sr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span><span class="s1">&#39;observed&#39;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;top 5 features, log likehood score is </span><span class="si">{</span><span class="n">cph1_core</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;top 10 features, log likehood score is is </span><span class="si">{</span><span class="n">cph2_core</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;top 15 features, log likehood score is is </span><span class="si">{</span><span class="n">cph3_core</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>top 5 features, log likehood score is -3.160537102720856
+top 10 features, log likehood score is is -3.059594055530953
+top 15 features, log likehood score is is -3.014781496938607
+</pre></div>
+</div>
+</div>
+</div>
+<p>但是，会不会有过拟合的风险呢？ 对于统计来说，主要参考一个指标AIC。
+AIC(model)=−2ll+2k</p>
+<p>其中k是模型的参数数量（自由度）和ll是最大对数似然。其实，AIC就是在使用尽可能少的参数最大化对数似然之间进行权衡。
+AIC_是参数模型的属性，对于 Cox 模型来说,AIC_partial_</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;top 5 features, AIC is </span><span class="si">{</span><span class="n">cph1</span><span class="o">.</span><span class="n">AIC_partial_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;top 10 features, AIC is </span><span class="si">{</span><span class="n">cph2</span><span class="o">.</span><span class="n">AIC_partial_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;top 15 features, AIC is </span><span class="si">{</span><span class="n">cph3</span><span class="o">.</span><span class="n">AIC_partial_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>top 5 features, AIC is 642.1074205441712
+top 10 features, AIC is 631.9188111061906
+top 15 features, AIC is 632.9562993877215
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们会选择模型2。
+最后，对比三个模型对同一个协变量的表现，发现总自由度（协变量个数）越少，单个协变量的影响越大（越激进）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">cph1</span><span class="o">.</span><span class="n">plot_partial_effects_on_outcome</span><span class="p">([</span><span class="s1">&#39;s9&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[[</span><span class="s1">&#39;s9&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;top 5 features&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Model Selection_13_0.png" src="../_images/Model Selection_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cph2</span><span class="o">.</span><span class="n">plot_partial_effects_on_outcome</span><span class="p">([</span><span class="s1">&#39;s9&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[[</span><span class="s1">&#39;s9&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;top 10 features&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Model Selection_14_0.png" src="../_images/Model Selection_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cph3</span><span class="o">.</span><span class="n">plot_partial_effects_on_outcome</span><span class="p">([</span><span class="s1">&#39;s9&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">max_event_censor_mix</span><span class="p">[[</span><span class="s1">&#39;s9&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;top 15 features&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Model Selection_15_0.png" src="../_images/Model Selection_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>总结<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>本文介绍了模型协变量（特征)如何通过标准差筛选，以及如何通过AIC选择模型。</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "env"
+        },
+        kernelOptions: {
+            kernelName: "env",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'env'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Hazard%20%20Function.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">风险函数hazard function</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By BingBlackBean<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
