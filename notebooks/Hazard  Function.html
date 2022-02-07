@@ -309,16 +309,16 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="hazard-function">
 <h1>风险函数hazard function<a class="headerlink" href="#hazard-function" title="Permalink to this headline">¶</a></h1>
 <p>关于风险函数的定义，取决于它的使用背景。</p>
-<p>从生存分析的角度推导，它指的是截止t或者大于t时刻，在t时刻的事件发生率。 通俗的讲就是一个导数，采用lambda或者h表示。
-<img alt="image.png" src="notebooks/attachment:image.png" /></p>
-<p>风险函数和生存函数可以相互推导,lifeline给出了最完整的解释。</p>
-<p><img alt="image-2.png" src="notebooks/attachment:image-2.png" /></p>
+<p>从生存分析的角度推导，它指的是截止t或者大于t时刻，在t时刻的事件发生率。 通俗的讲就是一个导数，采用lambda或者h表示。</p>
+<p><img alt="h1.png" src="../_images/h1.png" /></p>
+<p>风险函数和生存函数可以相互推导,lifeline给出了最完整的解释。
+<img alt="h2.png" src="../_images/h2.png" /></p>
 <div class="section" id="proportional-hazards-model">
 <h2>比例风险回归模型（proportional hazards model<a class="headerlink" href="#proportional-hazards-model" title="Permalink to this headline">¶</a></h2>
 <p>今天我们要介绍的另一个模型，它就是比例风险回归模型（proportional hazards model）。</p>
 <p>它同样支持的协变量，因为名字中的比例就是指的协变量对风险的对数影响是线性的（比例）。</p>
 <p>相比于baseline的风险模型，比例风险回归模型添加了一个比例项：
-<img alt="image.png" src="notebooks/attachment:image.png" /></p>
+<img alt="image.png" src="../_images/h3.png" /></p>
 <p><em><strong>注意这个比例项应该不随时间变化。</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -351,7 +351,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Hazard  Function_2_0.png" src="../_images/Hazard  Function_2_0.png" />
+<img alt="../_images/Hazard  Function_4_0.png" src="../_images/Hazard  Function_4_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -463,7 +463,7 @@ Convergence success after 5 iterations.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Hazard  Function_5_0.png" src="../_images/Hazard  Function_5_0.png" />
+<img alt="../_images/Hazard  Function_7_0.png" src="../_images/Hazard  Function_7_0.png" />
 </div>
 </div>
 <p>图中的baseline就是该协变量的均值所在的位置。</p>
@@ -477,7 +477,7 @@ Convergence success after 5 iterations.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../_images/Hazard  Function_7_1.png" src="../_images/Hazard  Function_7_1.png" />
+<img alt="../_images/Hazard  Function_9_1.png" src="../_images/Hazard  Function_9_1.png" />
 </div>
 </div>
 </div>
@@ -495,7 +495,7 @@ Convergence success after 5 iterations.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Hazard  Function_9_0.png" src="../_images/Hazard  Function_9_0.png" />
+<img alt="../_images/Hazard  Function_11_0.png" src="../_images/Hazard  Function_11_0.png" />
 </div>
 </div>
 <p>其实，Lifeline还提供很好的conditional_after参数，用于预测当下的情况。比如研究对象已经生存了65次了，后续的生存曲线是怎样的？</p>
@@ -510,7 +510,7 @@ Convergence success after 5 iterations.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Hazard  Function_11_0.png" src="../_images/Hazard  Function_11_0.png" />
+<img alt="../_images/Hazard  Function_13_0.png" src="../_images/Hazard  Function_13_0.png" />
 </div>
 </div>
 </div>
