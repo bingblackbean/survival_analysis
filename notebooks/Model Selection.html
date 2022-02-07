@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>模型选择 &#8212; My sample book</title>
+    <title>模型选择 &#8212; Survival Analysis for PdM</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -76,10 +76,10 @@
         
       
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
+      <img src="../_static/data_amber.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Survival Analysis for PdM</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -348,7 +348,7 @@ Iteration 5: norm_delta = 0.19772, step_size = 0.8354, log_lik = -316.10438, new
 
 Iteration 6: norm_delta = 0.00148, step_size = 1.0000, log_lik = -316.05371, newton_decrement = 0.00000, seconds_since_start = 0.0
 
-Iteration 7: norm_delta = 0.00000, step_size = 1.0000, log_lik = -316.05371, newton_decrement = 0.00000, seconds_since_start = 0.0
+Iteration 7: norm_delta = 0.00000, step_size = 1.0000, log_lik = -316.05371, newton_decrement = 0.00000, seconds_since_start = 0.1
 Convergence success after 7 iterations.
 </pre></div>
 </div>
@@ -367,20 +367,13 @@ Convergence success after 7 iterations.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1: norm_delta = 5.71665, step_size = 0.9000, log_lik = -334.74516, newton_decrement = 22.97305, seconds_since_start = 0.0
-
 Iteration 2: norm_delta = 4.00191, step_size = 0.2250, log_lik = -325.54982, newton_decrement = 15.12582, seconds_since_start = 0.0
-
 Iteration 3: norm_delta = 2.64511, step_size = 0.2925, log_lik = -317.94331, newton_decrement = 9.23807, seconds_since_start = 0.0
-
 Iteration 4: norm_delta = 1.31387, step_size = 0.4943, log_lik = -310.88370, newton_decrement = 3.99483, seconds_since_start = 0.0
-
-Iteration 5: norm_delta = 0.28904, step_size = 0.8354, log_lik = -306.64658, newton_decrement = 0.63025, seconds_since_start = 0.0
-
-Iteration 6: norm_delta = 0.01969, step_size = 1.0000, log_lik = -305.96915, newton_decrement = 0.00964, seconds_since_start = 0.0
-
-Iteration 7: norm_delta = 0.00029, step_size = 1.0000, log_lik = -305.95941, newton_decrement = 0.00000, seconds_since_start = 0.0
-
-Iteration 8: norm_delta = 0.00000, step_size = 1.0000, log_lik = -305.95941, newton_decrement = 0.00000, seconds_since_start = 0.0
+Iteration 5: norm_delta = 0.28904, step_size = 0.8354, log_lik = -306.64658, newton_decrement = 0.63025, seconds_since_start = 0.1
+Iteration 6: norm_delta = 0.01969, step_size = 1.0000, log_lik = -305.96915, newton_decrement = 0.00964, seconds_since_start = 0.1
+Iteration 7: norm_delta = 0.00029, step_size = 1.0000, log_lik = -305.95941, newton_decrement = 0.00000, seconds_since_start = 0.1
+Iteration 8: norm_delta = 0.00000, step_size = 1.0000, log_lik = -305.95941, newton_decrement = 0.00000, seconds_since_start = 0.1
 Convergence success after 8 iterations.
 </pre></div>
 </div>
@@ -398,6 +391,11 @@ Convergence success after 8 iterations.
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\renb\pycharmprojects\survival_analysis\env\lib\site-packages\lifelines\utils\__init__.py:1103: ConvergenceWarning: Column(s) [&#39;setting1&#39;] have very low variance. This may harm convergence. 1) Are you using formula&#39;s? Did you mean to add &#39;-1&#39; to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1: norm_delta = 6.01272, step_size = 0.9000, log_lik = -334.74516, newton_decrement = 25.55741, seconds_since_start = 0.0
 
 Iteration 2: norm_delta = 4.04988, step_size = 0.2250, log_lik = -324.52332, newton_decrement = 16.59274, seconds_since_start = 0.0
@@ -406,19 +404,14 @@ Iteration 3: norm_delta = 2.59220, step_size = 0.2925, log_lik = -316.17691, new
 
 Iteration 4: norm_delta = 1.21098, step_size = 0.4943, log_lik = -308.26647, newton_decrement = 4.92684, seconds_since_start = 0.0
 
-Iteration 5: norm_delta = 0.24620, step_size = 0.8354, log_lik = -302.90321, newton_decrement = 1.21045, seconds_since_start = 0.0
+Iteration 5: norm_delta = 0.24620, step_size = 0.8354, log_lik = -302.90321, newton_decrement = 1.21045, seconds_since_start = 0.1
 
-Iteration 6: norm_delta = 0.05263, step_size = 1.0000, log_lik = -301.53899, newton_decrement = 0.05903, seconds_since_start = 0.0
+Iteration 6: norm_delta = 0.05263, step_size = 1.0000, log_lik = -301.53899, newton_decrement = 0.05903, seconds_since_start = 0.1
 
-Iteration 7: norm_delta = 0.00335, step_size = 1.0000, log_lik = -301.47827, newton_decrement = 0.00012, seconds_since_start = 0.0
+Iteration 7: norm_delta = 0.00335, step_size = 1.0000, log_lik = -301.47827, newton_decrement = 0.00012, seconds_since_start = 0.1
 
 Iteration 8: norm_delta = 0.00001, step_size = 1.0000, log_lik = -301.47815, newton_decrement = 0.00000, seconds_since_start = 0.1
 Convergence success after 8 iterations.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\renb\pycharmprojects\survival_analysis\env\lib\site-packages\lifelines\utils\__init__.py:1103: ConvergenceWarning: Column(s) [&#39;setting1&#39;] have very low variance. This may harm convergence. 1) Are you using formula&#39;s? Did you mean to add &#39;-1&#39; to the end. 2) Try dropping this redundant column before fitting if convergence fails.
-
-  warnings.warn(dedent(warning_text), ConvergenceWarning)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;lifelines.CoxPHFitter:&quot;cph1&quot;, fitted with 100 total observations, 15 right-censored observations&gt;
@@ -550,7 +543,7 @@ top 15 features, AIC is 632.9562993877215
     <footer class="footer">
   <p>
     
-      By The Jupyter Book Community<br/>
+      By BingBlackBean<br/>
     
         &copy; Copyright 2021.<br/>
   </p>
