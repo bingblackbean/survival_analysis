@@ -3,20 +3,21 @@
 
 format: jb-book
 root: intro
+
 parts:
   - caption: Survival Analysis Introduction and Non-Parametric Model
     # numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: notebook/Intro_sa.ipynb
+    - file: notebooks/Intro_sa.ipynb
   - caption: Weibull Model and AFT model
     # numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: notebook/Weibull.ipynb
+    - file: notebooks/Weibull.ipynb
   - caption: COX PH model
     # numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: notebook/Hazard  Function.ipynb
+    - file: notebooks/Hazard  Function.ipynb
   - caption: Model Selection
     # numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: notebook/Model Selection.ipynb
+    - file: notebooks/Model Selection.ipynb
